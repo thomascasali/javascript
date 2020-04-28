@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Esempio 2 gestione DOM</title>
+        <style>
+            .contenitore{
+                margin:auto;
+                height: 310px;
+                width:110px;
+                background-color:rgb(0, 0, 0);
+                border-radius: 10%;
+            }
+            .semaforo {
+                margin:auto;
+                margin-top: 2px;;
+                width:100px;
+                height: 100px;
+                background-color:coral;
+                border: 1px;
+                border-radius: 50%;
+                border-color: black;
+            }
+        </style>
+        <script>
+            var colore=-1;
+            function cambia() {
+                colore=(colore+1)%3;
+                switch (colore) {
+                    case 0:
+                        document.getElementById('rosso').style.background='red';
+                        document.getElementById('arancione').style.background='black';
+                        document.getElementById('verde').style.background='black';
+                        break;
+                    case 1:
+                        document.getElementById('rosso').style.background='black';
+                        document.getElementById('arancione').style.background='orange';
+                        document.getElementById('verde').style.background='black';
+                        break;
+                    case 2:
+                        document.getElementById('rosso').style.background='black';
+                        document.getElementById('arancione').style.background='black';
+                        document.getElementById('verde').style.background='green';
+                        break;
+                }
+            }
+         </script>
+    </head>
+    <body style="text-align:center ;">
+        <h1 id="titolopagina">Semaforo</h1>
+        <div class="contenitore">
+            <div id="rosso" class="semaforo"></div>
+            <div id="arancione" class="semaforo"></div>
+            <div id="verde" class="semaforo"></div>
+        </div>
+        <br>
+        <input type="button" onclick="document.getElementById('rosso').style.background='red';" value="rosso">
+        <input type="button" onclick="document.getElementById('arancione').style.background='orange';" value="arancione">
+        <input type="button" onclick="document.getElementById('verde').style.background='green';" value="verde">
+        <br/><br/>
+        <input type="button" onclick="cambia()" value="cambia">
+    </body>
+</html>

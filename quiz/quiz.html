@@ -1,0 +1,166 @@
+<html>
+	<head>
+		<title>QUIZ</title>
+
+		<script language="JavaScript" type="text/javascript">
+		<!-- // hide script from old browsers
+		function check()
+		{
+			var punteggio=0;
+			var text="";     
+			//0 corrisponde al vero
+			//1 corrisponde al falso
+			var soluzione= new Array(0,1,0,0,0,1,1,0,1,0,1,1,1,0,1);
+			//avanzo di 2 in 2 perché scorro gli elementi della form con elements che è una collezione che contiene tutti gli input della form 
+			for (i=0;i<30;i+=2)
+			{
+				//metto la risposta alla domanda i dentro le variabili vero e falso
+				var vero= document.domande.elements[i].checked;
+				var falso= document.domande.elements[i+1].checked;
+
+				if ( !vero && !falso ) //se non c'è risposta 
+				{
+					i/=2;
+					i++;
+					alert ("Devi rispondere alla domanda n. "+i );
+					return ;
+				}
+
+				if ( (soluzione[i/2] == 1 && vero ) || (soluzione[i/2] == 0 && falso )) //controllo la risposta 
+				{
+					punteggio++;
+				}
+				else
+				{
+			
+					text += ", " + ((i/2)+1) + " era ";
+
+					if ( soluzione[i/2] == 1 )
+					{
+						text+="Vera";
+					}
+					else
+					{
+						text+="Falsa";
+					}
+				}
+			}
+
+			var fulltxt = "          Hai totalizzato " + punteggio + " su 20\n\n";
+
+			if ( punteggio < 5 )
+			{
+				fulltxt += "Scarso!!!\n";
+			}
+			if ( punteggio>=5 && punteggio <= 8 )
+			{
+				fulltxt += "Sufficiente\n";
+			}
+			if (  punteggio>=9 && punteggio <= 11 )
+			{
+				fulltxt += "Discreto\n";
+			}
+			
+			if (  punteggio>=12 && punteggio <= 14 )
+			{
+				fulltxt += "Buono\n"
+			}
+			if ( punteggio==15 )
+			{
+				fulltxt += "STELLARE!"
+			}
+			else
+			{
+				fulltxt += "\nmmmmmmmm " + text
+			}
+
+			alert ( fulltxt )
+		}
+		// -->
+		</script>
+	</head>
+
+	<body text="#ffff40" vlink="#C00000" link="#FF4040" bgcolor="#000000" background="./img/digi.gif">
+
+<div align="center">
+	<table border="0" width="700" id="table1">
+		<tr>
+			<td><h1>Domandoneeee, mmmmm...</h1>
+			</b><p><h2>testo del quiz...</h2></font>
+		</tr>
+	</table>
+</div>
+	<div align="center">
+    <form name="domande">
+      <table width="700" border="1">
+        <tbody>
+        <tr>
+          <td width="400">Un fulmine può colpire due volte nello stesso posto<br><img alt="Image 1 vero o falso ?" width="379" height="249" src="img/1.jpg"></td>
+					<!--VERO: Secondo la NASA, il terzo e il quarto fulmine di solito seguono lo stesso percorso del secondo.-->
+          <td>Vero <input type="radio" value="0" name="opt1"> o Falso <input type="radio" value="1" name="opt1"> </td></tr>
+        <tr>
+          <td>L'universo non è in espansione<br><img alt="Image 2 vero o falso ?" width="379" height="249" src="img/2.jpg"></td>
+					<!--FALSO: Le galassie distanti si stanno allontanando, a riprova del fatto che l'universo si sta espandendo-->
+          <td>Vero <input type="radio" value="0" name="opt2"> o Falso <input type="radio" value="1" name="opt2"> </td></tr>
+        <tr>
+          <td>Se confrontato con le altre, il sole è una stella di medie dimensioni<br><img alt="Image 3 vero o falso ?" width="379" height="249" src="img/3.jpg"></td>
+          <!--VERO: Sembra più grande semplicemente perché è molto più vicino alla Terra.-->
+          <td>Vero <input type="radio" value="0" name="opt3"> o Falso <input type="radio" value="1" name="opt3"> </td></tr>
+        <tr>
+          <td>Gli esseri umani e le banane hanno geni in comune<br><img alt="Image 4 vero o falso ?" width="379" height="249" src="img/4.jpg"></td>
+          <!--VERO: Gli esseri umani hanno in comune con le banane il 50% del proprio DNA.-->
+          <td>Vero <input type="radio" value="0" name="opt4"> o Falso <input type="radio" value="1" name="opt4"> </td></tr>
+        <tr>
+          <td>Quando dormi non puoi sentire gli odori<br><img alt="Image 5 vero o falso ?" width="379" height="249" src="img/5.jpg"></td>
+					<!--VERO: Quando si dorme, il senso dell'olfatto smette di funzionare.-->
+          <td>Vero <input type="radio" value="0" name="opt5"> o Falso <input type="radio" value="1" name="opt5"> </td></tr>
+        <tr>
+          <td>Gli adulti possono respirare e deglutire contemporaneamente<br><img alt="Image 6 vero o falso ?" width="379" height="249" src="img/6.jpg"></td>
+					<!--FALSO: L'aria passa attraverso la faringe. Quando si deglutisce la faringe si trasforma da punto di passaggio per l'aria a punto di passaggio per il cibo.-->
+          <td>Vero <input type="radio" value="0" name="opt6"> o Falso <input type="radio" value="1" name="opt6"> </td></tr>
+        <tr>
+          <td>Un polpo ha tre cuori.<br><img alt="Image 7 vero o falso ?" width="379" height="249" src="img/7.jpg"></td>
+          <!--FALSO: Due cuori pompano il sangue nelle branchie e uno pompa il sangue in tutto il corpo.-->
+          <td>Vero <input type="radio" value="0" name="opt7"> o Falso <input type="radio" value="1" name="opt7"> </td></tr>
+        <tr>
+          <td>L'ingrediente principale usato nella salsa guacamole è l'avocado.<br><img alt="Image 8 vero o falso ?" width="379" height="249" src="img/8.jpg"></td>
+          <!--VERO: La salsa, servita di solito per accompagnare le tortilla, è originaria del Messico-->
+          <td>Vero <input type="radio" value="0" name="opt8"> o Falso <input type="radio" value="1" name="opt8"> </td></tr>
+        <tr>
+          <td>La feta è un formaggio italiano<br><img alt="Image 9 vero o falso ?" width="379" height="249" src="img/9.jpg"></td>
+					<!--FALSO: La feta è un formaggio greco a base di latte di capra e pecora.-->
+          <td>Vero <input type="radio" value="0" name="opt9"> o Falso <input type="radio" value="1" name="opt9"> </td></tr>
+        <tr>
+          <td>La benda sull'occhio aiutava i pirati a vedere meglio nell'oscurità.<br><img alt="Image 10 vero o falso ?" width="379" height="249" src="img/10.jpg"></td>
+					<!--VERO: L'occhio coperto dalla benda poteva adattarsi meglio al buio quando i pirati si spostavano sottocoperta.-->
+          <td>Vero <input type="radio" value="0" name="opt10"> o Falso <input type="radio" value="1" name="opt10"> </td></tr>
+        <tr>
+          <td>Le Jersey Royals sono una varietà di cipolle<br><img alt="Image 11 vero o falso ?" width="379" height="249" src="img/11.jpg"></td>
+          <!--FALSO: Si tratta di una varietà di patate.-->
+          <td>Vero <input type="radio" value="0" name="opt11"> o Falso <input type="radio" value="1" name="opt11"> </td></tr>
+        <tr>
+          <td>I trichechi nuotano in gruppo seguendo un capo.<br><img alt="Image 12 vero o falso ?" width="379" height="249" src="img/12.jpg"></td>
+					<!--FALSO: Questi mammiferi nuotano in coppia o da soli.-->
+          <td>Vero <input type="radio" value="0" name="opt12"> o Falso <input type="radio" value="1" name="opt12"> </td></tr>
+        <tr>
+          <td>Il Rio delle Amazzoni è il fiume più lungo del mondo.<br><img alt="Image 13 vero o falso ?" width="379" height="249" src="img/13.jpg"></td>
+					<!--FALSO: Il fiume più lungo del mondo è il Nilo.-->
+          <td>Vero <input type="radio" value="0" name="opt13"> o Falso <input type="radio" value="1" name="opt13"> </td></tr>
+        <tr>
+          <td>Il Brasile è il paese che coltiva più caffè al mondo.<br><img alt="Image 14 vero o falso ?" width="379" height="249" src="img/14.jpg"></td>
+          <!--VERO: Il Brasile conserva questo primato da 150 anni.-->
+          <td>Vero <input type="radio" value="0" name="opt14"> o Falso <input type="radio" value="1" name="opt14"> </td></tr>
+        <tr>
+          <td>La Grande Muraglia cinese non si vede dallo spazio.<br><img alt="Image 15 vero o falso ?" width="379" height="249" src="img/15.jpg"></td>
+          <!--FALSO: Secondo la NASA, la muraglia può essere vista solo tramite radar ed è invisibile ad occhio nudo.-->
+          <td>Vero <input type="radio" value="0" name="opt15"> o Falso <input type="radio" value="1" name="opt15"> </td></tr>
+        <tr>
+          <td align="middle" colspan="2"><br>
+					<input onclick="check()" type="button" alt="Clicca per controllare" value="Controlla!" name="chk"> 
+          </td></tr>
+			</tbody>
+		</table>
+		</form>
+	</div>
+</body>
+</html>

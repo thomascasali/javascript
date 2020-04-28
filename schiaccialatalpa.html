@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>Esempio utilizzo DOM per realizzazione gioco schiaccia la talpa</title>
+        <style>
+            .buca {
+                margin: auto;
+                width: 100px;
+                height: 100px;
+                background-color: rgb(100, 31, 6);
+                border-style: solid;
+                border-color: white; 
+                border-width: 0.5;
+                border-radius: 50%;
+                margin: 4px;     
+                float: left;           
+            }
+            .contenitore{
+                margin: auto;
+                width: 330px;
+                height: 330px;
+                background-color:black;
+                border-radius: 10%;
+            }
+        </style>
+        <script>          
+            var punti;  
+            function CambiaColore() {
+                //ciclo for per colorare tutte le buche di marrone
+                for(i=1;i<10;i++) {
+                    let divS="buca"+i;
+                    document.getElementById(divS).style.backgroundColor='brown';
+                }
+                //estrazione casuale di un numero da 1 a 9
+                nDiv=Math.floor(Math.random() * 9) +1;
+                //prendo il nome del div del quale voglio cambiare colore
+                nDiv="buca"+nDiv;
+                document.getElementById(nDiv).style.backgroundColor='yellow';
+            } 
+
+            var timer;
+            function Start() {
+                punti=0;
+                timer = setInterval(function(){
+                    CambiaColore()
+                },1000);
+            }   
+            function Stop(){
+                clearInterval(timer);
+            }
+
+            function Colpo(divID) {
+                if (document.getElementById(divID).style.backgroundColor=='yellow'){
+                    punti++;
+                    document.getElementById('punti').innerHTML=punti;
+                }
+            }        
+          
+        </script>
+    </head>
+    <body style="text-align: center;">
+        <h1>Schiaccia la talpa</h1>
+        <div class="contenitore">
+            <div class="buca" id="buca1" onclick="Colpo('buca1');"></div>
+            <div class="buca" id="buca2" onclick="Colpo('buca2');"></div>
+            <div class="buca" id="buca3" onclick="Colpo('buca3');"></div>
+            <div class="buca" id="buca4" onclick="Colpo('buca4');"></div>
+            <div class="buca" id="buca5" onclick="Colpo('buca5');"></div>
+            <div class="buca" id="buca6" onclick="Colpo('buca6');"></div>
+            <div class="buca" id="buca7" onclick="Colpo('buca7');"></div>
+            <div class="buca" id="buca8" onclick="Colpo('buca8');"></div>
+            <div class="buca" id="buca9" onclick="Colpo('buca9');"></div>
+        </div>
+        <p>Punteggio: <span id="punti">0</span></p>
+
+        <input type="button" onclick="Start()" value="START!!!"><br>
+        <input type="button" onclick="Stop()" value="STOP">
+    </body>
+</html>

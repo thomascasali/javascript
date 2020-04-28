@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>MEDIA VOTI</title>
+</head>
+<body>
+<body bgcolor="#8cff66"></body>
+<script>
+	alert("Con questo programma potrai fare la somma dei tuoi voti e la loro media");
+	var s=0;
+	var x=prompt("quanti voti ha in totale ?")*1;
+	var c=1;
+	do{
+		var y=prompt("Inserisci il voto")*1;
+		c=c+1;
+		s=s+y;
+	} while(c<=x);
+	var m=s/x;
+	document.write("la somma dei voti potrebbe essere "+s+"<br>")
+	document.write("la media dei voti potrebbe essere "+m)
+</script>
+</body>
+</html>

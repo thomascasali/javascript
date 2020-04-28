@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <script>
+        function Calcola(){
+            var doc=document.form1;
+            doc.risultato.value=doc.op1.value*1+doc.op2.value*1;
+            document.getElementById('risultato').innerHTML=doc.op1.value*1+doc.op2.value*1;
+        }
+    </script>
+</head>
+<body>
+    <form name="form1">
+        <input type="text" name="op1" size="5">+
+        <input type="text" name="op2" size="5">=
+        <input type="button" onclick="Calcola()" value="Calcola">
+        <input type="text" name="risultato" size="10"><br>
+         
+    </form>
+    Risultato: <p id="risultato"></p>
+</body>
+</html>

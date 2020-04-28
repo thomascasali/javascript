@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Esempio utilizzo DOM per realizzazione gioco Schiaccia il topo</title>
+        <style>
+            .buca {
+                width: 100px;
+                height: 100px;
+                background-color: coral;
+                border-style: solid;
+                border-color: white; 
+                border-width: 0.5;
+                border-radius: 50%;
+                margin: 4px;    
+                float: left;            
+            }
+            .contenitore{
+                margin: auto;
+                width: 330px;
+                height: 330px;
+                background-color:black;
+                border-radius: 10%;
+            }
+        </style>
+        <script>
+            var gioco;
+            function ColoraTopo() {
+                nDiv=Math.floor(Math.random() * 9) +1;
+                nDiv="d"+nDiv;
+                for(i=1;i<10;i++) {
+                    let divS="d"+i;
+                    document.getElementById(divS).style.backgroundColor='brown';
+                }
+                document.getElementById(nDiv).style.backgroundColor='yellow';
+            }
+            function Start() {
+                gioco = setInterval(function(){
+                    ColoraTopo()
+                },1000);
+            }
+            function Colpo(divID) {
+                if(document.getElementById(divID).style.backgroundColor=='yellow'){
+                    //c'era la talpa e segno il colpo
+                    var punti=document.getElementById("punti").innerHTML*1;
+                    punti++;
+                    document.getElementById("punti").innerHTML=punti;
+                }
+            }
+            
+        </script>
+    </head>
+    <body style="text-align: center;">
+        <h1>Schiaccia il topo</h1>
+        <div class="contenitore">
+            <div class="buca" id="d1" onclick="Colpo('d1');"></div>
+            <div class="buca" id="d2" onclick="Colpo('d2');"></div>
+            <div class="buca" id="d3" onclick="Colpo('d3');"></div>
+            <div class="buca" id="d4" onclick="Colpo('d4');"></div>
+            <div class="buca" id="d5" onclick="Colpo('d5');"></div>
+            <div class="buca" id="d6" onclick="Colpo('d6');"></div>
+            <div class="buca" id="d7" onclick="Colpo('d7');"></div>
+            <div class="buca" id="d8" onclick="Colpo('d8');"></div>
+            <div class="buca" id="d9" onclick="Colpo('d9');"></div>
+        </div>
+        <p>Punteggio:</p> <span id="punti"></span>
+        <br><br>
+
+        <input type="button" onclick="Start();" value="START!!!">
+        <br>
+        <input type="button" onclick="clearInterval(gioco);" value="STOP">
+        
+    </body>
+</html>

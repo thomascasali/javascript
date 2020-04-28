@@ -1,0 +1,24 @@
+<html>
+<head>
+<script>
+	function test(){
+		var x=document.getElementsByName("num1").value*1;
+		var y=document.getElementsByName("num2").value*1;
+		var ris=x*y;
+		alert(document.getElementsByName("num1").value);
+		document.form1.ris=ris;
+	}
+</script>
+</head>
+<body>
+	<form name="form1" id="form1" action="#" method="POST">
+		<input type="text" name="num1" value="">
+		+
+		<input type="text" name="num2" value="">
+		=
+		<input type="text" name="ris">
+		<br>
+		<input type="button" name="but1" value="Calcola" onclick="test()">
+	</form>
+</body>
+</html>

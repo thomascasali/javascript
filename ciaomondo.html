@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Esempio 1 gestione DOM</title>
+    </head>
+    <body>
+        <h1 id="titolopagina">Titolo 1</h1>
+        <p id="display">testo da visualizzare</p>
+        <div id="immagine"></div>
+        <div class="red">
+            <p>Par 1</p>
+            <p>Par 2</p>
+        </div>
+        <div class="red">
+            <p>Par 3</p>
+            <p>Par 4</p>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="red"></div>
+        <!--commento HTML-->
+        <script>
+            //commento su una riga in Javascrfipt
+            /* 
+                commento su più righe in Javascript
+                esempio di gestione del DOM 
+            */
+           document.getElementById('titolopagina').innerHTML="Esempio di gestione DOM con Ciao Mondo"
+           document.getElementById('display').innerHTML="ciao <big><b>mondo</b></big>";
+           document.getElementById('immagine').innerHTML="<img width='100' src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/First_second_third_worlds_map.svg/1200px-First_second_third_worlds_map.svg.png'>"
+           document.title="Titolo della pagina HTML";
+           //document.body.innerHTML="Pagina vuota";
+           console.log(document.head);
+           console.log(document.getElementById('display'));
+           let tagName=document.getElementsByTagName('div');
+           console.log(tagName);
+           for (i=0;i<tagName.length;i++) {
+            tagName[i].innerHTML="ciao";
+           }
+           let tagClass=document.getElementsByClassName('red')
+           console.log(tagClass);
+           for (i=0;i<tagClass.length;i++) {
+            tagClass[i].style.color='red';
+           }
+           let disp=document.getElementById('display');
+           disp.style.background='lightgreen';
+        </script>
+    </body>
+</html>
