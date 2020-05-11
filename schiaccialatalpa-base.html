@@ -3,17 +3,16 @@
         <title>Esempio utilizzo DOM per realizzazione gioco schiaccia la talpa</title>
         <style>
             .buca {
-                float: left; /*div flottante*/
-                margin: auto;  /*posizionamento automatico della buca al centro*/
+                margin: auto;
                 width: 100px;
                 height: 100px;
                 background-color: rgb(100, 31, 6);
                 border-style: solid;
                 border-color: white; 
                 border-width: 0.5;
-                border-radius: 50%; /*div circolare*/
+                border-radius: 50%;
                 margin: 4px;     
-                background-size: 100px;         
+                float: left;           
             }
             .contenitore{
                 margin: auto;
@@ -24,63 +23,34 @@
             }
         </style>
         <script>          
-            var punti; 
-            var puoicolpire; 
-            var tempo;
-            var rapportoTempoColpi;
-            var durata;
+            var punti;  
             function CambiaColore() {
-                //inizializza la variabile puoicolpire
-                puoicolpire=1;
-                tempo++;
-                document.getElementById('tempo').innerHTML=Math.floor(tempo*rapportoTempoColpi);
-                if (tempo>durata) Stop();
                 //ciclo for per colorare tutte le buche di marrone
                 for(i=1;i<10;i++) {
                     let divS="buca"+i;
                     document.getElementById(divS).style.backgroundColor='brown';
-                    document.getElementById(divS).style.backgroundImage='';
                 }
                 //estrazione casuale di un numero da 1 a 9
                 nDiv=Math.floor(Math.random() * 9) +1;
                 //prendo il nome del div del quale voglio cambiare colore
                 nDiv="buca"+nDiv;
                 document.getElementById(nDiv).style.backgroundColor='yellow';
-                document.getElementById(nDiv).style.backgroundImage='url(img/talpa.jpg)';
             } 
 
             var timer;
-            function Start(intervallo) {
+            function Start() {
                 punti=0;
-                tempo=0;
-                durata=1000/intervallo*30;
-                rapportoTempoColpi=intervallo/1000;
-                document.getElementById('punteggio').style.visibility='visible';
-                document.getElementById('startfacile').style.visibility='hidden';
-                document.getElementById('startdifficile').style.visibility='hidden';
                 timer = setInterval(function(){
                     CambiaColore()
-                },intervallo);
+                },1000);
             }   
             function Stop(){
-                document.getElementById('tempo').innerHTML="GIOCO FINITO! <br>Hai totalizzato " + punti + " punti";
-                document.getElementById('punteggio').style.visibility='hidden';
-                document.getElementById('startfacile').style.visibility='visible';
-                document.getElementById('startdifficile').style.visibility='visible';
                 clearInterval(timer);
             }
 
             function Colpo(divID) {
-                if (puoicolpire==0) return; //se non posso colpire esco dalla funzione
                 if (document.getElementById(divID).style.backgroundColor=='yellow'){
                     punti++;
-                    document.getElementById('punti').innerHTML=punti;
-                    document.getElementById(nDiv).style.backgroundImage='url(img/talpaschiacciata.jpg)';
-                    //disabilita temporaneamente la possibilità di colpire la talpa
-                    puoicolpire=0;
-                }
-                else {
-                    punti-=0.5;
                     document.getElementById('punti').innerHTML=punti;
                 }
             }        
@@ -89,7 +59,6 @@
     </head>
     <body style="text-align: center;">
         <h1>Schiaccia la talpa</h1>
-        <p id="tempo"></p>
         <div class="contenitore">
             <div class="buca" id="buca1" onclick="Colpo('buca1');"></div>
             <div class="buca" id="buca2" onclick="Colpo('buca2');"></div>
@@ -101,10 +70,9 @@
             <div class="buca" id="buca8" onclick="Colpo('buca8');"></div>
             <div class="buca" id="buca9" onclick="Colpo('buca9');"></div>
         </div>
-        <p id="punteggio">Punteggio: <span id="punti">0</span></p>
+        <p>Punteggio: <span id="punti">0</span></p>
 
-        <input type="button" id="startfacile" onclick="Start(1000)" value="START FACILE!!!">
-        <input type="button" id="startdifficile" onclick="Start(700)" value="START DIFFICILE!!!"><br>
+        <input type="button" onclick="Start()" value="START!!!"><br>
         <input type="button" onclick="Stop()" value="STOP">
     </body>
 </html>
