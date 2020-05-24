@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TicTacToe</title>
+        <style>
+            .spazio {
+                margin: auto;
+                width: 100px;
+                height: 100px;
+                background-color: hsl(0, 0%, 99%);
+                border-style: solid;
+                border-color: rgb(0, 0, 0)
+                border-width: 0.2;
+                margin: 2px;
+                float: left; 
+                background-size: 100px;
+            }
+            .contenitore {
+								margin: auto;
+                width: 330px;
+                height: 330px;
+                background-color: #000000;
+            }
+        </style>
+        <script>
+				 var turno=0;
+				 function gioca(divCliccato) {
+
+					 turno++; //alert(turno);
+					 //document.getElementById(divCliccato).innerHTML='X'; 
+
+					 if(document.getElementById(divCliccato).style.backgroundColor=='') {
+						 if(turno%2==1) {
+							 document.getElementById(divCliccato).style.backgroundColor='yellow'; 
+						 }
+						 else {
+							 document.getElementById(divCliccato).style.backgroundColor='red'; 
+						 }
+						 
+						 //controlla la vittoria
+						 let vittoria=0;	
+						 //controllo della vittoria sulle righe
+						 if (document.getElementById('spazio1').style.backgroundColor==document.getElementById('spazio2').style.backgroundColor && document.getElementById('spazio2').style.backgroundColor==document.getElementById('spazio3').style.backgroundColor && document.getElementById('spazio1').style.backgroundColor!='') vittoria=1;
+						 if (document.getElementById('spazio4').style.backgroundColor==document.getElementById('spazio5').style.backgroundColor && document.getElementById('spazio5').style.backgroundColor==document.getElementById('spazio6').style.backgroundColor && document.getElementById('spazio4').style.backgroundColor!='') vittoria=1;
+						 if (document.getElementById('spazio7').style.backgroundColor==document.getElementById('spazio8').style.backgroundColor && document.getElementById('spazio8').style.backgroundColor==document.getElementById('spazio9').style.backgroundColor && document.getElementById('spazio7').style.backgroundColor!='') vittoria=1;
+						 
+						 //controllo della vittoria sulle colonne
+						 if (document.getElementById('spazio1').style.backgroundColor==document.getElementById('spazio4').style.backgroundColor && document.getElementById('spazio4').style.backgroundColor==document.getElementById('spazio7').style.backgroundColor && document.getElementById('spazio1').style.backgroundColor!='' ||
+						 document.getElementById('spazio2').style.backgroundColor==document.getElementById('spazio5').style.backgroundColor && document.getElementById('spazio5').style.backgroundColor==document.getElementById('spazio8').style.backgroundColor && document.getElementById('spazio2').style.backgroundColor!='' ||
+						 document.getElementById('spazio3').style.backgroundColor==document.getElementById('spazio6').style.backgroundColor && document.getElementById('spazio6').style.backgroundColor==document.getElementById('spazio9').style.backgroundColor && document.getElementById('spazio3').style.backgroundColor!='') vittoria=1;
+						 
+						 let d1=document.getElementById('spazio1').style.backgroundColor;
+						 let d5=document.getElementById('spazio5').style.backgroundColor;
+						 let d9=document.getElementById('spazio9').style.backgroundColor;
+						 let d3=document.getElementById('spazio3').style.backgroundColor;
+						 let d7=document.getElementById('spazio7').style.backgroundColor;
+						 
+						 if(d1==d5&&d5==d9&&d9!='') vittoria=1; 
+						 if(d3==d5&&d5==d7&&d7!='') vittoria=1; 
+						 
+						 if(vittoria==1) document.getElementById('vittoria').innerHTML='Ha vinto il giocatore ' + turno%2;
+						 
+						 
+						}
+				 }
+				</script>
+    </head>
+    <body style="text-align:center;">
+        <h1>Tris</h1>
+        <div class="contenitore">
+            <div class="spazio" id="spazio1" onclick="gioca('spazio1')"></div>
+            <div class="spazio" id="spazio2" onclick="gioca('spazio2')"></div>
+            <div class="spazio" id="spazio3" onclick="gioca('spazio3')"></div>
+            <div class="spazio" id="spazio4" onclick="gioca('spazio4')"></div>
+						<div class="spazio" id="spazio5" onclick="gioca('spazio5')"></div>
+            <div class="spazio" id="spazio6" onclick="gioca('spazio6')"></div>
+            <div class="spazio" id="spazio7" onclick="gioca('spazio7')"></div>
+            <div class="spazio" id="spazio8" onclick="gioca('spazio8')"></div>
+            <div class="spazio" id="spazio9" onclick="gioca('spazio9')"></div>
+        </div>
+				<div id="vittoria"></div>
+    </body>
+</html>
