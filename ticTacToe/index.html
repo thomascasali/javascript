@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ITA" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    <meta name="author" content="Lorenzo Conti">
+    <meta name="generator" content="Visual Studio Code">
+    <style media="screen">
+
+      .pTitle{
+        color:white;
+        font-size:100px;
+        text-shadow:0 0 12px cornflowerblue;
+      }
+      .Cvinto{
+        color:white;
+        font-size:70px;
+        text-shadow:0 0 12px cornflowerblue;  
+      }
+      .startB{
+        background-color: black;
+        border:5px solid cornflowerblue;
+        width:340px;
+        height:100px;
+        font-size:50px;
+        color:white;
+        border-radius:22px;
+        box-shadow:0 0 11px cornflowerblue;
+      }
+      .cambiaTema{
+        position: absolute;
+        left:2%;
+        top:2%;
+        background-color: black;
+        border:5px solid cornflowerblue;
+        width:80px;
+        height:80px;
+        font-size:50px;
+        color:white;
+        border-radius:22px;
+        box-shadow:0 0 11px cornflowerblue;  
+      }
+    </style>
+    <script src="script.js"></script>
+  </head>
+  <body bgcolor="black">
+    <center>
+      <br><br><br>
+      <h1 class="pTitle" id="pTitle"><i>Tic Tac Toe</i></h1>
+      <input type="button" class="cambiaTema" style="background-image:url(images/);" onclick="cambiaTema('inizio')" id="temaB">
+      <br><br><br>
+      <br><br>
+      <a href="single.html"><input type="button" class="startB" id="StartB" value="Single mode"></a><br><br><br><br>
+      <a href="multiplayer.html"><input type="button" class="startB" onclick="Stop()" value="Multiplayer" id="StopB"></a>
+    </center>
+  </body>
+</html>

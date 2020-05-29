@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ITA" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    <meta name="author" content="Lorenzo Conti">
+    <meta name="generator" content="Visual Studio Code">
+    <style media="screen">
+      .cell{
+        width:100px;
+        height:100px;
+        float:left;
+      }
+      .xoro{
+        color:white;
+      }
+      .pTitle{
+        color:white;
+        font-size:100px;
+        text-shadow:0 0 12px cornflowerblue;
+      }
+      .Cvinto{
+        color:white;
+        font-size:70px;
+        text-shadow:0 0 12px cornflowerblue;  
+      }
+      .startB{
+        background-color: black;
+        border:5px solid cornflowerblue;
+        width:200px;
+        height:80px;
+        font-size:50px;
+        color:white;
+        border-radius:22px;
+        box-shadow:0 0 11px cornflowerblue;
+      }
+      .cambiaTema{
+        background-color: black;
+        border:5px solid cornflowerblue;
+        height:80px;
+        font-size:50px;
+        color:white;
+        border-radius:22px;
+        box-shadow:0 0 11px cornflowerblue;  
+      }
+    </style>
+    <script src="script.js">
+    </script>
+  </head>
+  <body bgcolor="black">
+    <center>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <input type="button" class="cambiaTema" style="position: absolute;left:2%;top:2%; width:80px;" onclick="cambiaTema('dopo')" id="temaB">
+      <a href="index.html"><input type="button" class="cambiaTema" style="position: absolute;right:2%;top:2%;width:180px;" id="exit" value="Exit"></a>
+      <br><br><br>
+      <div style="position:absolute;left:40%;;width:310px;height:310px;background-image:url(images/grid.png);">
+      <div class="cell" id="c1" onclick="Colpito('c1',true)"></div>
+      <div class="cell" id="c2" onclick="Colpito('c2',true)"></div>
+      <div class="cell" id="c3" onclick="Colpito('c3',true)"></div>
+      <div class="cell" id="c4" onclick="Colpito('c4',true)"></div>
+      <div class="cell" id="c5" onclick="Colpito('c5',true)"></div>
+      <div class="cell" id="c6" onclick="Colpito('c6',true)"></div>
+      <div class="cell" id="c7" onclick="Colpito('c7',true)"></div>
+      <div class="cell" id="c8" onclick="Colpito('c8',true)"></div>
+      <div class="cell" id="c9" onclick="Colpito('c9',true)"></div>
+      </div>
+      <br><br>
+      <div style="position:absolute;left:60%">
+      <input type="button" class="startB" id="StartB" onclick="Start()" value="Start"><br><br><br><br>
+      <input type="button" class="startB" onclick="Stop()" value="Stop" id="StopB">
+      </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <b><p class="Cvinto" id="Cvinto"></p></b>
+    </center>
+  </body>
+</html>
